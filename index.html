@@ -212,28 +212,15 @@
         .back-to-top:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0, 82, 217, 0.3); }
         .back-to-top svg { width: 22px; height: 22px; fill: currentColor; }
 
-/* 📱 大厂级移动端响应式适配 (Responsive Mobile Layout) */
+        /* 📱 移动端响应式适配 */
         @media (max-width: 768px) {
             body { padding: 16px 12px; }
             header { flex-direction: column; padding: 24px 16px; gap: 20px; text-align: center; }
             header::before { width: 100%; height: 6px; }
             .profile-img { margin: 0 auto; width: 110px; height: 146px; }
             .header-content h1 { font-size: 26px; }
-            
-            /* =========================================================
-               1. 触控热区优化：将联系方式变成“大拇指友好”的胶囊按钮
-               ========================================================= */
-            .meta-info { flex-direction: column; align-items: center; gap: 12px; width: 100%; }
-            .meta-item { width: 100%; }
-            .meta-item strong { display: none; } /* 手机端隐藏“联系电话:”字样，更精简 */
-            .phone-link {
-                display: flex; justify-content: center; width: 100%;
-                background-color: var(--tag-bg); padding: 12px 0; 
-                border-radius: 8px; font-size: 15px; border: 1px solid rgba(0, 82, 217, 0.1);
-            }
-            .click-hint { display: none; } /* 移动端有了大按钮，不再需要小气泡 */
-
-            .grid-3 { grid-template-columns: 1fr !important; gap: 16px; }
+            .meta-info { justify-content: center; gap: 12px; font-size: 13px; text-align: left; }
+            .grid-3 { grid-template-columns: 1fr !important; gap: 12px; }
             .project-block { padding: 24px 16px; margin-bottom: 24px; }
             .project-header h3 { font-size: 18px; }
             .results-bar { display: grid; grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
@@ -243,46 +230,15 @@
             .content-split { flex-direction: column; gap: 24px; }
             .visual-content { width: 100% !important; max-width: 100% !important; }
             .grid-visual-4, .grid-visual-3, .grid-visual-2 { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; width: 100%; }
-            
-            /* =========================================================
-               2. 物理阻尼反馈：模拟真实 App 的按压下陷效果
-               ========================================================= */
-            .gallery-item, .stacked-card {
-                /* 增加内阴影放大镜图标，暗示可点击 */
-                position: relative;
-            }
-            .gallery-item::after {
-                content: '🔍'; position: absolute; top: 8px; right: 8px; z-index: 5;
-                font-size: 12px; background: rgba(0,0,0,0.4); border-radius: 50%;
-                width: 24px; height: 24px; display: flex; justify-content: center; align-items: center; color: white;
-            }
-            /* 取消电脑端悬停，增加手机端按压反馈 */
             .gallery-item:hover, .stacked-card:hover { transform: none !important; box-shadow: var(--shadow-sm) !important; border-color: var(--border-color) !important; }
-            .gallery-item:active, .stacked-card:active {
-                transform: scale(0.96) !important; /* 按下时微微缩小 */
-                transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-                opacity: 0.9;
-            }
-
             .text-content .gallery-item.aspect-4-3 { width: 100% !important; max-width: 100% !important; margin: 16px 0 !important; }
             .matrix-row { justify-content: flex-start; gap: 20px 12px; }
             .stacked-container { min-height: 200px; margin-top: 10px; margin-bottom: 20px; }
-            .stacked-container:hover .stacked-card:nth-child(n) { transform: none; }
-            .back-to-top { right: 20px; bottom: -60px; } 
-
-            /* =========================================================
-               3. 弹窗防反人类设计：把“关闭按钮”变成清晰的半透明圆钮
-               ========================================================= */
-            .lightbox-close {
-                top: 20px; right: 20px;
-                width: 40px; height: 40px;
-                background-color: rgba(255, 255, 255, 0.2); /* 加个背景色，防图片底色干扰 */
-                backdrop-filter: blur(4px);
-                border-radius: 50%;
-                display: flex; justify-content: center; align-items: center;
-                font-size: 28px; line-height: 1; text-align: center;
-                /* 防止和手机电量/时间状态栏重叠 */
-            }
+            .stacked-container:hover .stacked-card:nth-child(1) { transform: none; }
+            .stacked-container:hover .stacked-card:nth-child(2) { transform: none; }
+            .stacked-container:hover .stacked-card:nth-child(4) { transform: none; }
+            .stacked-container:hover .stacked-card:nth-child(5) { transform: none; }
+            .back-to-top { right: 20px; } /* 移动端微调按钮位置 */
         }
     </style>
 </head>
